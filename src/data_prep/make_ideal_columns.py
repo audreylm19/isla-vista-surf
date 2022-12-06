@@ -10,4 +10,6 @@ df = pd.read_csv(root_folder/'data/processed/00-final.csv')
 
 make_ideals(df, Ideals)
 
-df.to_csv(root_folder/'data/processed/01-final.csv')
+df['Score'] = df[['Ideal Wind', 'Ideal Tide', 'Ideal Swell', 'Ideal Period']].sum(axis=1)
+
+df.to_csv(root_folder/'data/processed/01-final.csv', index=False)
