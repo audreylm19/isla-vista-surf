@@ -1,7 +1,7 @@
 import pandas as pd
-import numpy as np
-from bokeh.io import curdoc, show
-from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Scatter, Range1d
+from bokeh.io import show
+from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource, Range1d
 
 #how to save graph
 #graphname = 'scatter-bar-test.png'
@@ -21,31 +21,22 @@ for i in range(10):
     l=[i,i,i]
     y.extend(l)
 
-data = {'x_values':x,
-        'y_values':y}
+d = {'x': x, 'y': y}
+df = pd.DataFrame(data=d)
+df['Score'] = ''
+df.loc[df.x < 5, 'Score'] = "#053061"
+df.loc[df.x >5, 'Score'] = "#67001f"
 
-source = ColumnDataSource(data=data)
+source = ColumnDataSource(data=df)
 
-plot = Plot(
+
+plot = figure(
     title=None, width=300, height=300,
     min_border=0, toolbar_location=None,
     x_range = Range1d(0, 20),
     y_range = Range1d(0,20))
 
-glyph = Scatter(x="x_values", y="y_values", size=20, fill_color="#74add1")
-
-plot.add_glyph(source, glyph)
-
-xaxis = LinearAxis()
-plot.add_layout(xaxis, 'below')
-
-yaxis = LinearAxis()
-plot.add_layout(yaxis, 'left')
-
-plot.add_layout(Grid(dimension=0, ticker=xaxis.ticker))
-plot.add_layout(Grid(dimension=1, ticker=yaxis.ticker))
-
-curdoc().add_root(plot)
+plot.scatter(x="x", y="y", size=20, source=source, color="Score", line_color="black")
 
 show(plot)
 
