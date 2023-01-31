@@ -64,7 +64,7 @@ def makePlot(width: int, space: int, df):
         #x_range = Range1d(0, 20),
         #y_range = Range1d(0,5000)
         )
-    plot.title.text_align = 'center'
+    #plot.title.align = 'center'
     plot.title.text_font_size = '20px'
 
     plot.hover.tooltips = [
@@ -107,9 +107,7 @@ def makePlot(width: int, space: int, df):
     plot.ygrid.visible = False
 
     plot.y_range.range_padding = 0.02
-
     show(plot)
-
     return
 
 def makeScatterBar(year: int, width: int, space: int, df):
