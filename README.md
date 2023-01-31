@@ -6,4 +6,4 @@ Have yet to do any substantial analysis, but have collected, cleaned, and proces
 
 Thanks for checking it out!
 
-{% include figure.html %}
+{% include scatter_bar_2017.html %}
