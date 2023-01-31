@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add styles for the page */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      h1 {
+        text-align: left;
+        margin-top: 50px;
+        font-size: 36px;
+      }
+      .description {
+        width: 45%;
+        float: left;
+        margin-top: 1px;
+        margin-right: 5%;
+        text-align: left;
+        font-weight: bold;
+        color: rgb(117, 116, 116);
+      }
+
+      .image {
+        float: center;
+        margin-top: 0px;
+        margin-bottom: 100px
+      }
+
+      .stacked-bar {
+      float: right;
+      height: 250;
+      width: 150;
+      margin-top: -100px;
+      }
+      .graphs {
+        width: 1010px;
+        height: 700px;
+        float: left;
+        margin-top: 50px;
+        text-align: left;
+        margin-bottom: -100px;
+      }
+      /* Add styles for the graphs */
+      .first-column-graph {
+        width: 100%;
+        height: 100%;
+      }
+      .second-column-graph {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Isla Vista Wave Quality</h1>
+      <iframe class="stacked-bar" width=50% height=500px frameborder="0" src="version_2.html"></iframe>
+      <div class="description">
+        <p>Analyzing swell, tide, and wind data in Isla Vista from 2017 to 2021 to see if there is a noticeable trend in wave quality. </p>
+        <p>All of the plotting is done in Bokeh. I'm still working on the final visualization&mdash;I need to learn how to use CustomJS callbacks&mdash;but the idea is to click on a bar in the simple stacked bar chart to see the corresponding year's hover graph.</p>
+        <p>In the hover graph, each point represents a daylight hour. You can roll over the graph to see an hour's conditions and surf quality score. </p>
+      </div>
+      <div class="graphs">
+        <div class="second-column-graph">
+          <iframe width=100% height=100% frameborder="0" src="scatter_bar_2017.html"></iframe>
+        </div>
+      </div>
+      <div class="image">
+        <img src="devs.png" width=65% height=65% alt="Devereaux Point">
+      </div>
+    </div>
+  </body>
+</html>

@@ -4,8 +4,10 @@ from datetime import timedelta
 import numpy as np
 
 from bokeh.io import show
-from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource, Range1d
+# from bokeh.plotting import figure
+# from bokeh.models import ColumnDataSource, Range1d
+from bokeh.resources import CDN
+from bokeh.embed import file_html
 
 import sys
 sys.path.insert(1, 'C:\\Users\\audre\\Documents\\Data Science Portfolio\\Surf\\src\\data_prep')
@@ -31,4 +33,17 @@ df.loc[df['Score']==4, 'color'] = "#FF4500"
 # makeScatterBar(2018, 5, 5, df)
 # makeScatterBar(2019, 5, 5, df)
 # makeScatterBar(2020, 5, 5, df)
-makeScatterBar(2017, 5, 5, df)
+p17 = makeScatterBar(2017, 5, 5, df)
+
+html = file_html(p17, CDN, "scatter_bar_2017")
+
+# Creating an HTML file
+html17 = open("scatter_bar_2017.html","w")
+   
+# Adding input data to the HTML file
+html17.write(html)
+              
+# Saving the data into the HTML file
+html17.close()
+
+show(p17)

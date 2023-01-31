@@ -46,7 +46,8 @@ data = {'0':bar0, '1':bar1, '2':bar2, '3':bar3, '4':bar4}
 source = pd.DataFrame(data)
 
 #plotting
-plot = figure(toolbar_location=None, tools=[tap])
+TITLE = "Ideal Isla Vista Surf Conditions 2017-2021"
+plot = figure(title=TITLE, toolbar_location=None, tools="hover", tooltips = "@$name hours with score $name", width=500, height=500)
 
 plot.vbar_stack(['0','1','2','3','4'], 
     x='PSTdt', 
@@ -64,5 +65,21 @@ plot.vbar_stack(['0','1','2','3','4'],
     nonselection_fill_color=colors,
     nonselection_line_color='white',
     nonselection_line_alpha=1.0)
+
+plot.title.text_font_size = '20px'
+
+plot.legend.title = "Score"
+
+plot.xaxis.major_label_text_font_style = 'bold'
+plot.xaxis.major_label_text_font_size = '15px'
+
+plot.yaxis.axis_label = "Total Daylight Hours"
+plot.yaxis.axis_label_text_font_style = 'bold'
+plot.yaxis.axis_label_text_font_size = '15px'
+
+plot.xgrid.visible = False
+plot.ygrid.visible = False
+
+plot.y_range.range_padding = 0.02
 
 show(plot)

@@ -107,15 +107,15 @@ def makePlot(width: int, space: int, df):
     plot.ygrid.visible = False
 
     plot.y_range.range_padding = 0.02
-    show(plot)
-    return
+
+    return plot
 
 def makeScatterBar(year: int, width: int, space: int, df):
     df = chooseYear(year, df)
     df = makeCounts(df)
     df = makeXY(width, space, df)
-    makePlot(width, space, df)
-    return
+    plot = makePlot(width, space, df)
+    return plot
 
 
 
