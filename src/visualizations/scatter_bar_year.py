@@ -23,6 +23,7 @@ df['Month'] = df['PSTdt'].dt.month
 
 #defining colors
 df['color'] = ''
+df.loc[df['Score']==-1, 'color'] = "#DDDD00"
 df.loc[df['Score']==1, 'color'] = "#1E90FF"
 df.loc[df['Score']==2, 'color'] = "#32CD32"
 df.loc[df['Score']==0, 'color'] = "#808080"
@@ -31,19 +32,19 @@ df.loc[df['Score']==4, 'color'] = "#FF4500"
 
 # makeScatterBar(2017, 5, 5, df)
 # makeScatterBar(2018, 5, 5, df)
-# makeScatterBar(2019, 5, 5, df)
+p19 = makeScatterBar(2019, 5, 5, df)
 # makeScatterBar(2020, 5, 5, df)
-p17 = makeScatterBar(2017, 5, 5, df)
+# p16 = makeScatterBar(2016, 5, 5, df)
 
-html = file_html(p17, CDN, "scatter_bar_2017")
+html = file_html(p19, CDN, "scatter_bar_2019")
 
 # Creating an HTML file
-html17 = open("scatter_bar_2017.html","w")
+file = open("scatter_bar_2019.html","w")
    
 # Adding input data to the HTML file
-html17.write(html)
+file.write(html)
               
 # Saving the data into the HTML file
-html17.close()
+file.close()
 
-show(p17)
+show(p19)

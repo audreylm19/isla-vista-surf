@@ -16,13 +16,14 @@ df['PSTdt'] = pd.to_datetime(df['PST'], utc=True)-timedelta(hours=8)
 df['Month'] = df['PSTdt'].dt.month
 
 #defining colors
-colors = ["#1E90FF", "#32CD32", "#808080", "#FFA500", "#FF4500"]
+colors = ["#DDDD00","#808080", "#1E90FF", "#32CD32", "#FFA500", "#FF4500"]
 
 #making a count column
 ones = np.ones(df.shape[0], dtype=int)
 df['count'] = ones
 
 #booleans to filter by score
+nan = df.Score == -1
 zero = df.Score == 0
 one = df.Score == 1
 two = df.Score == 2
@@ -30,6 +31,7 @@ three = df.Score == 3
 four = df.Score == 4
 
 #hour count for each score by year
+barnan = df[nan]['count'].groupby(df['PSTdt'].dt.year).sum()
 bar0 = df[zero]['count'].groupby(df['PSTdt'].dt.year).sum()
 bar1 = df[one]['count'].groupby(df['PSTdt'].dt.year).sum()
 bar2 = df[two]['count'].groupby(df['PSTdt'].dt.year).sum()
@@ -42,19 +44,19 @@ callback = CustomJS(code=
 tap = TapTool(callback=callback)
 
 #creating data source
-data = {'0':bar0, '1':bar1, '2':bar2, '3':bar3, '4':bar4}
+data = {'no data':barnan, '0':bar0, '1':bar1, '2':bar2, '3':bar3, '4':bar4}
 source = pd.DataFrame(data)
 
 #plotting
-TITLE = "Ideal Isla Vista Surf Conditions 2017-2021"
+TITLE = "Ideal Isla Vista Surf Conditions 2015-2021"
 plot = figure(title=TITLE, toolbar_location=None, tools="hover", tooltips = "@$name hours with score $name", width=500, height=500)
 
-plot.vbar_stack(['0','1','2','3','4'], 
+plot.vbar_stack(['no data','0','1','2','3','4'], 
     x='PSTdt', 
     width=0.9, 
     color=colors,
     line_color='white',
-    legend_label=['0','1','2','3','4'],  
+    legend_label=['no data','0','1','2','3','4'],  
     source=source,
     # set visual properties for selected glyphs
     selection_color=colors,

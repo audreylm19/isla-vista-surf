@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Graph Explainer</title>
+    <style>
+        h1 {
+        text-align: left;
+        margin-top: 50px;
+        font-size: 36px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin-left: 50px;
+        padding: 0;
+      }
+      .image {
+        float: right;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-right:100px
+      }
+      .stacked-bar {
+      float: right;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      height: 500px;
+      margin-right: -10px
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex;">
+      <div style="width: 50%;">
+        <h1>Graph Explainer</h1>
+        <h2>Colors</h2>
+        <div>
+        <p>I chose the same color scheme that Surfline uses to distinguish conditions. Gray represents a score of zero, blue a score of one, green a score of two, orange a score of three, and red a score of four. An hour’s total score is the number of ideal wind, tide, period, and swell conditions met according to the following metrics:</p>
+        <ul>
+            <li>If either of the below conditions are met, an hour’s wind is considered ideal</li>
+            <ul>
+                <li>Any wind speed between 0mph and 4mph</li>
+                <li>Wind speed between 5mph and 10mph if wind direction is between 0 and 57 degrees</li>
+            </ul>
+            <li>If both of the below conditions are met, an hour’s swell is considered ideal</li>
+            <ul>
+                <li>Swell direction between 258 and 304 degrees</li>
+                <li>Swell Height between 1m and 3m</li>
+            </ul>
+            <li>Tide between 2ft and 5ft is considered ideal</li>
+            <li>Period over 8 seconds is considered ideal</li>
+        </ul>
+        <p>Hours without sufficient data are colored yellow.</p>
+        <div>
+            <img class="image" src="sufline-colors.png" width=30% height=30% alt="Surfline Colors">
+        </div>
+    </div>
+        <h2>Yearly Stacked Bar Graph</h2>
+        <p>Each bar represents the total daylight hours in a year separated by score. Eventually, clicking on a bar will lead you to that year’s corresponding hover graph, but for now you’ll just see the total hours in each color block. </p>
+        <div>
+            <iframe class="stacked-bar" width=100% height=100% frameborder="0" src="version_2.html"></iframe>
+        </div>
+        <h2>Monthly Hover Graph</h2>
+        <p>Each brick you see represents a single daylight hour, and hovering over a brick will show that hour’s exact wind, swell, tide, and period.</p>
+        <p>This bar graph is actually a scatter plot in disguise&mdash;in order to preserve each hour’s conditions I manually assigned every hour an x-y position to form a bar graph. For this reason, I’ve omitted the y-axis, since the area of each color block represents a score’s total hours rather than the block’s height. You can see this area next to “total hours with this score” in the hover display.</p>
+    </div>
+      <div style="width: 50%;">
+        <div>
+            <img class="image" src="sufline-colors.png" width=30% height=30% alt="Surfline Colors">
+        </div>
+        <div>
+          <!-- Image or graph for Monthly Hover Graph section -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
