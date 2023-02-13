@@ -12,6 +12,13 @@
         width: 50%;
         text-align: left;
       }
+      body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 20px
+      /*font-weight: bold;*/
+      }
       .image {
         float: center;
         margin-top: 0px;
@@ -56,12 +63,12 @@
         </ul>
         <p>Hours without sufficient data are colored yellow.</p>
         <div>
-          <img class="image" src="sufline-colors.png" width=30% height=30% alt="Surfline Colors">
+          <img class="image" src="sufline-colors.png" width=20% height=20% alt="Surfline Colors">
         </div>
         <h2>Yearly Stacked Bar Graph</h2>
         <p>Each bar represents the total daylight hours in a year separated by score. Eventually, clicking on a bar will lead you to that year’s corresponding hover graph, but for now you’ll just see the total hours in each color block. </p>
         <div>
-            <iframe class="stacked-bar" width=100% height=100% frameborder="0" src="version_2.html"></iframe>
+            <iframe class="stacked-bar" width=100% height=100% frameborder="0" src="stacked_bar.html"></iframe>
         </div>
         <h2>Monthly Hover Graph</h2>
         <p>Each brick you see represents a single daylight hour, and hovering over a brick will show that hour’s exact wind, swell, tide, and period.</p>

@@ -9,13 +9,52 @@
 <style>
     /* Add styles for the page */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
-      font-weight: bold;
+      font-size: 20px
+      /*font-weight: bold;*/
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        width: 50%;
+        text-align: left;
+    }
+    .stacked-bar {
+      float: center;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      height: 500px;
+      margin-right: -10px;
+    }
+    .scatter {
+      float: center;
+      margin-top: 5px;
+      margin-bottom: -80px;
+      height: 500px;
     }
 </style>
-<body>
-    This page is in progress
+<body style="font-family: 'Helvetica Neue', sans-serif;">
+    <div class="container">
+      <div class="content">
+            <h1>About</h1>
+            <p>It’s part of surfing’s nature to reminisce about the times when the swell was pumping and the surf was insane, and hope that those conditions of lore return. This project was inspired by a common sentiment in Isla Vista that "the waves used to be better" which was also echoed by my surf instructor coworkers. I wanted to see if there is evidence to support that feeling, or if this perception exists no matter the wave quality.</p>
+            <p>When determining ideal conditions, I considered the surf breaks Devereaux and Campus Point, although Sands and other spots in Santa Barbara were likely firing any time an hour gained a score of four.</p>
+            <p>At first glance, it seems that there is no real trend in wave quality between 2015 and 2021, especially without the three months of data in 2016.</p>
+            <div>
+                <iframe class="stacked-bar" width=100% height=100% frameborder="0" src="stacked_bar.html"></iframe>
+            </div>
+            <p>However, only a few awesome sessions make an era of surfing memorable. In fact, if we focus on the hours with the best conditions, a small trend emerges.</p>
+            <div>
+                <iframe class="scatter" width="100%" height="100%" frameborder="0" src="scatter.html"></iframe>
+            </div>
+            <p>There were 38 less epic hours in 2021 compared to 2017. Assuming 12 hours of daylight, that's three entire day's worth of pumping surf that just didn't occur in 2021. This may not seem like much, but it only takes one great session to completely change your perception of current or past surf conditions, and the liklihood of having one of these sessions in 2017 was higher than in 2021.</p>
+            <p>I'm planning on doing some proper statistics to confirm whether or not a trend in wave quality really exists, but I'm still in the process of verifying ideal conditions with local surfers. Thus, an official conclusion is yet to be determined.</p>
+        </div>
+    </div>
 </body>
 </html>
