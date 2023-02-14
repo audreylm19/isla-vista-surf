@@ -7,15 +7,72 @@
     <title>Methods and Data Sources</title>
 </head>
 <style>
-    /* Add styles for the page */
-    body {
-      font-family: Arial, sans-serif;
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content {
+        width: 50%;
+        text-align: left;
+      }
+      body {
+      font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
-      font-weight: bold;
-    }
+      font-size: 20px
+      /*font-weight: bold;*/
+      }
+      .custom-link {
+        color:black;
+        font-size: 20px;
+      }
 </style>
-<body>
-    This page is in progress
+<body style="font-family: 'Helvetica Neue', sans-serif;">
+    <div class="container">
+      <div class="content">
+            <h1>Methods and Data Sources</h1>
+            <h2>Ideal Conditions</h2>
+            <p>Each daylight hour has a surfability score ranging from 0 to 4. These scores are determined by the number of ideal conditions met according to the following metrics:</p>
+            <ul>
+                <li>If either of the below conditions are met, an hour’s wind is considered ideal</li>
+                <ul>
+                    <li>Any wind speed between 0mph and 4mph</li>
+                    <li>Wind speed between 5mph and 10mph if wind direction is between 0 and 57 degrees</li>
+                </ul>
+                <li>If both of the below conditions are met, an hour’s swell is considered ideal</li>
+                <ul>
+                    <li>Swell direction between 258 and 304 degrees</li>
+                    <li>Swell Height between 1m and 3m</li>
+                </ul>
+                <li>Tide between 2ft and 5ft is considered ideal</li>
+                <li>Period over 8 seconds is considered ideal</li>
+            </ul>
+            <h2>Methods</h2>
+            <p>All of the plotting was done with the Bokeh package in Python. All of data cleaning and manipulation was done with pandas in Python. The data cleaning involved converting everything to PST, keeping daylight hours, merging the four datasets, dealing with observations taken at odd intervals, and classifying hours based on ideal conditions.</p>
+            <h2>Data Sources</h2>
+            <h4>Swell Direction, Swell Height, Period</h4>
+            <p>I gathered swell information from the <a class='custom-link' href="https://cdip.ucsd.edu/themes/cdip?pb=1&u2=s:071:st:1&d2=p9">Harvest Buoy</a>, whose data is made avaliable by the Coastal Data Information Program at UCSD. The buoy is located just west of Point Conception, and is the primary source for forecasting surf in the Santa Barbara region.</p>
+            <ul>
+                <li><b>Time</b>&mdash;UTC</li>
+                <li><b>Hs (m)</b>&mdash;Significant wave height in meters; derived from the zeroth moment of the reported energy spectrum. Described as the "average height of the one third highest waves in the record"</li>
+                <li><b>Dp (deg)</b>&mdash;Mean direction from which energy is coming at the peak period, in degrees clockwise from true North. </li>
+                <li><b>Tp (s)</b>&mdash;Peak period, in seconds</li>
+            </ul>
+            <h4>Tides</h4>
+            <p>I collected <a class=custom-link href="https://tidesandcurrents.noaa.gov/stationhome.html?id=9411340">tide data</a> from the National Oceanic and Atmospheric Administration (NOAA).</p>
+            <ul>
+                <li><b>Time</b>&mdash;GMT</li>
+                <li><b>Verified Tide</b>&mdash; Feet</li>
+            </ul>
+            <h4>Wind</h4>
+            <p>I also found <a class="custom-link" href="https://www.ncei.noaa.gov/cdo-web/datasets/LCD/stations/WBAN:23190/detail">wind data</a> through NOAA. The closest station I could find to the surf breaks in Isla Vista was the Santa Barbara Airport. </p>
+            <ul>
+                <li><b>Time</b>&mdash;Time of observation given as a 4-digit number using a 24-hour clock in local standard time (e.g. 1751 =5:51 pm LST). No adjustments are made to account for Daylight Savings Time (DST).</li>
+                <li><b>Wind Speed</b>&mdash;Speed of the wind at the time of observation given in miles per hour (mph).</li>
+                <li><b>Wind Direction</b>&mdash;Wind direction from true north using compass directions (e.g. 360 = true north, 180 = south, 270 =west, etc.). Note: A direction of “000” is given for calm winds.</li>
+            </ul>
+
+        </div>
 </body>
 </html>

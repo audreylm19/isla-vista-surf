@@ -39,6 +39,10 @@
         margin-bottom: 0px;
         /* margin-left: -200px;*/
       }
+      .custom-link {
+        color:black;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body style="font-family: 'Helvetica Neue', sans-serif;">
@@ -46,21 +50,7 @@
       <div class="content">
         <h1>Graph Explainer</h1>
         <h2>Colors</h2>
-        <p>I chose the same color scheme that Surfline uses to distinguish conditions. Gray represents a score of zero, blue a score of one, green a score of two, orange a score of three, and red a score of four. An hour’s total score is the number of ideal wind, tide, period, and swell conditions met according to the following metrics:</p>
-        <ul>
-            <li>If either of the below conditions are met, an hour’s wind is considered ideal</li>
-            <ul>
-                <li>Any wind speed between 0mph and 4mph</li>
-                <li>Wind speed between 5mph and 10mph if wind direction is between 0 and 57 degrees</li>
-            </ul>
-            <li>If both of the below conditions are met, an hour’s swell is considered ideal</li>
-            <ul>
-                <li>Swell direction between 258 and 304 degrees</li>
-                <li>Swell Height between 1m and 3m</li>
-            </ul>
-            <li>Tide between 2ft and 5ft is considered ideal</li>
-            <li>Period over 8 seconds is considered ideal</li>
-        </ul>
+        <p>I chose the same color scheme that Surfline uses to distinguish conditions. Gray represents a score of zero, blue a score of one, green a score of two, orange a score of three, and red a score of four. An hour’s total score is the number of ideal wind, tide, period, and swell conditions met according to the metrics outlined <a class="custom-link" href="methods.html">here</a>.</p>
         <p>Hours without sufficient data are colored yellow.</p>
         <div>
           <img class="image" src="sufline-colors.png" width=20% height=20% alt="Surfline Colors">
